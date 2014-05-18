@@ -17,7 +17,7 @@
   }
 
   socket.on('connect', function socketConnected() {
-
+console.log("This is from the connect: ", this.socket.sessionid);
     // Listen for Comet messages from Sails
     socket.on('message', function messageReceived(message) {
 
@@ -26,11 +26,16 @@
       // to run when a new message arrives from the Sails.js
       // server.
       ///////////////////////////////////////////////////////////
-      log('New comet message received :: ', message);
+      log('New comet message received :: ', message.data.person.firstName);
       //////////////////////////////////////////////////////
 
     });
 
+
+  socket.get('/Person/welcome', function gotResponse () {
+    // we don’t really care about the response
+log('socket get');
+  });
 
     ///////////////////////////////////////////////////////////
     // Here's where you'll want to add any custom logic for

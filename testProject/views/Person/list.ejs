@@ -1,0 +1,24 @@
+ <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+$(document).ready(function() {
+socket.on('message', function messageReceived(message) {
+
+      ///////////////////////////////////////////////////////////
+      // Replace the following with your own custom logic
+      // to run when a new message arrives from the Sails.js
+      // server.
+      ///////////////////////////////////////////////////////////
+      console.log('New comet message received :: ', message.data.person.firstName);
+      //////////////////////////////////////////////////////
+      $('#people').append('<li>'+message.data.person.firstName+'</li>');     
+    });
+ });
+</script>
+<div>
+  <h2>My corndog collection:</h2>
+  <ul id="people">
+    <% _.each(people, function (person) { %>
+    <li><%= person.firstName %></li>
+    <% }) %>
+  </ul>
+</div>

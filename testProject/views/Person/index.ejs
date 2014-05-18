@@ -1,0 +1,16 @@
+<script>
+var s = io.connect("http://localhost:1337");
+s.get('/People', function (response) {
+  // response contains a list of all users
+});
+</script>
+<div>
+  <h1>My first view</h1>
+
+  <h2>My corndog collection:</h2>
+  <ul>
+    <% _.each(people, function (person) { %>
+    <li><%= person.firstName %></li>
+    <% }) %>
+  </ul>
+</div>
