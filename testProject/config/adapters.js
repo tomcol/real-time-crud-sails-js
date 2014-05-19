@@ -28,7 +28,7 @@ module.exports.adapters = {
   // Learn more: http://en.wikipedia.org/wiki/MySQL
   myLocalMySQLDatabase: {
 
-    module: 'sails-mysql',
+    module: 'sails-postgresql',
     host: 'localhost', 
     database: 'sailsTest'
   }

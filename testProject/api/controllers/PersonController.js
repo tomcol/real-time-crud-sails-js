@@ -53,7 +53,7 @@ module.exports = {
 	  var id = req.param('id');
 	  if (!id || id==0) {
 			  res.view({
-		        person: { id:0,firstName: '',lastName:'',age:0},
+		        person: { id:'',firstName: '',lastName:'',age:0},
 		      });
 	  }else{
 
