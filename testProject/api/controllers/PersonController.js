@@ -33,7 +33,6 @@ module.exports = {
   			  id: person.id,
   			  person: person 
   			});
-  			console.log('publish create ',person.id);
   			res.redirect('/Person/list');
   		});	 
   	 }else{
@@ -41,14 +40,9 @@ module.exports = {
   		Person.update(id, params, function  (err, person) {
   			 if (err) return res.send(err,500);
   			Person.findOne(id).done( function (err,person){
-  				console.log('person.toJSON ',person.toJSON());
   				Person.publishUpdate( id,
   						{person:person.toJSON()}
   				);
-		  	    /*Person.publishUpdate( 56, {
-		  	      name: 'Amanda'
-		  	    });*/
-  			console.log('publish update ',id);
   			res.redirect('/Person/list');
   			});
   		});
@@ -58,18 +52,9 @@ module.exports = {
   edit: function (req,res) {
 	  var id = req.param('id');
 	  if (!id || id==0) {
-		  //var person = new Person
-		  //person.firstName="";
-		  //person.lastName="";
-		  /*Person.create({ 
-	      firstName:"",
-	      lastName:""
-		  }).done(function(err, person) {*/
-			  //console.log('person.firstName ',person.firstName);
 			  res.view({
 		        person: { id:0,firstName: '',lastName:''},
 		      });
-		  //});
 	  }else{
 
 	  	Person.findOne(id).done( function (err,person){
@@ -131,7 +116,7 @@ module.exports = {
 welcome: function (req, res) {
     // Get all of the users
     Person.find(function(err, people){
-console.log('subscribe');
+//console.log('subscribe');
       Person.subscribe(req.socket, Person);
       //Person.subscribe(req.socket, 7);
       Person.subscribe(req.socket, people);

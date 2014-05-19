@@ -8,14 +8,11 @@ socket.on('message', function messageReceived(message) {
       // to run when a new message arrives from the Sails.js
       // server.
       ///////////////////////////////////////////////////////////
-      console.log('New comet message received :: ', message);
+      //console.log('New comet message received :: ', message);
       if (message.verb=="create"){
-      	console.log('+message.data.person :: ', message.data.person);
-      	$('#people').append('<li id="person_'+message.data.person.id+'"><a href="/Person/edit/'+message.data.person.id+'">'+message.data.person.firstName+'&nbsp;'+message.data.person.lastName+'</a></li>');
+      		$('#people').append('<li id="person_'+message.data.person.id+'"><a href="/Person/edit/'+message.data.person.id+'">'+message.data.person.firstName+'&nbsp;'+message.data.person.lastName+'</a></li>');
       }
        if (message.verb=="update"){
-       		console.log('message.id :: ', message.id);
-       		console.log('message.data.person.firstName ', message.data.person.firstName);
        		$('#person_'+message.id).html('<a href="/Person/edit/'+message.data.person.id+'">'+message.data.person.firstName+'&nbsp;'+message.data.person.lastName+'</a></li>');
        }
      

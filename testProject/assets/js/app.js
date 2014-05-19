@@ -33,8 +33,8 @@ console.log("This is from the connect: ", this.socket.sessionid);
 
 
   socket.get('/Person/welcome', function gotResponse () {
-    // we don’t really care about the response
-	  	log('socket get');
+    // we don't really care about the response
+	  	//log('socket get');
   });
 
     ///////////////////////////////////////////////////////////
