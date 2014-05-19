@@ -1,5 +1,5 @@
 *.class
-
+testProject/config/local.js
 # Package Files #
 *.svn
 *.war
