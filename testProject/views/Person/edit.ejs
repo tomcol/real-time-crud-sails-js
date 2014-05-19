@@ -1,7 +1,49 @@
-<h1>New Person</h1>
+<div id="pagecontainer">
+	<div id="header">
+		<a href="/Person/list" title="Home">TOM COLLINS</a>
+		<a href="/Person/list" title="Home" class="bridgeway"><img src="/images/bridgewaylogo.png" alt="Bridgeway Publisher" /></a>
+	</div><!--/header-->
+	<div id="content">
+		<div id="contenttop">
+				<h2><a href="index.jsp" title="Home">TOM COLLINS - SAILS JS DEMO - REAL TIME CRUD</a></h2>
+		</div><!--/contenttop-->
+		<div id="contentleft">
+			<ul>
+			<li><a href="/Person/list" title="Manage People">Manage People</a></li>
+			</ul>
+			<hr />
+		</div><!-- /contentleft -->
+		
+		<div id="contentleft-hider">
+			<a href="#" title="Hide Navigation"><img src="/images/larr.png" alt="Hide Navigation" /></a>			
+		</div>
+
+
+
+		<div id="contentright">
+			<div class="contentpadder">
+								
+				<h3>Edit Person</h3>
+				
+				<div class="contenteditor">
 <form action="/Person/save/<%= person.id %>" method="POST">
 
-	First Name: <input name="firstName" type="text" value="<%= person.firstName %>"/> <br />
-	Last Name: <input name="lastName" type="text" value="<%= person.lastName %>"/> <br />
-	<input type="submit"/>
+	<label for="firstName">First Name:</label> <input id="firstName" name="firstName" type="text" value="<%= person.firstName %>"/> 
+	<label for="lastName">Last Name:</label> <input id="lastName" name="lastName" type="text" value="<%= person.lastName %>"/> 
+	<div class="savecontent">
+							<input type="submit" value="Save Changes" id="save" name="save" class="button greenbutton" />
+						</div>
 </form>
+				</div>
+			</div><!--/contentpadder-->
+		</div><!--/contentright-->
+		
+</div><!--/contentpadder-->
+		</div><!--/contentright -->
+	</div><!--/content-->
+	<div id="footer">
+		<!--<p>Powered by <a href="http://www.digitalbridge.com.au" title="Digital Bridge">Digital Bridge</a></p>-->
+	</div><!--/footer-->
+</div>
+</body>
+</html>

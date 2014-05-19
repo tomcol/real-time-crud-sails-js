@@ -1,0 +1,424 @@
+/* DB Generic Reset */
+@import url(https://digitalbridge.com.au/central/adminbase.css);
+
+.autocomplete {
+	clear:both;
+	margin-left: 22%;
+	width: 28.5%;
+	margin-bottom: 15px;
+}
+
+.autocomplete ul {
+    list-style-type:none;
+    margin: 0px;
+    padding: 4px 1% 4px 1%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+
+}
+
+div.autocomplete ul li {
+    list-style-type:none;
+    display: block;
+    margin: 0;
+    padding: 2px 5px;
+    height: 16px;
+    cursor: pointer;
+    color: #4F6E83;
+    border: 1px solid #fff;
+    -webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+}
+
+
+.autocomplete ul li.selected,
+.autocomplete ul li:hover { 
+	background-color: #EBF7FF;
+    border: 1px solid #23374F;
+    -webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	
+}
+div.options {
+	clear:both;
+}
+div.options fieldset {
+	margin-top: 0px!important;
+}
+
+.eventpreview {
+	float: left;
+	width: 234px;
+	margin: 10px;
+	border: 1px solid;
+}
+
+#content .eventpreview h3 {
+	background-color: #23374f;
+	margin-bottom: 15px;
+	padding: 15px 20px 15px;
+	color: #fff;
+}
+
+.eventpreview p {
+	margin-right: 20px;
+	margin-left: 20px;
+	text-align: right;
+}
+
+.eventpreview p.indent {
+	margin-left: 30px;
+}
+
+.eventpreview p strong {
+	float: left;
+}
+
+.eventpreview .buttons {
+	margin-top: 15px;
+	padding: 15px 20px;
+	border-top: 1px solid #ccc;
+	text-align: center;
+}
+
+.eventdetails {
+	width: 30%;
+}
+
+.eventdetails .colleft {
+	float: left;
+	width: 47.5%;
+	margin-right: 5%;
+}
+
+.eventdetails .colright {
+	float: right;
+	width: 47.5%;
+}
+
+.eventdetails p {
+	text-align: right;
+}
+
+.eventdetails p.indent {
+	margin-left: 10px;
+}
+
+.eventdetails p strong {
+	float: left;
+}
+
+#unseated {
+	float: right;
+	width: 250px;
+	margin: 1em;
+	border: 1px solid #23374f;
+}
+
+#selectTable {
+	padding: 1em;
+	border-bottom: 1px solid #ccc;
+	text-align: right;
+}
+
+#selectTable label {
+	float: left;
+	margin: 4px 0;
+}
+
+#unseated ul {
+	padding-bottom: 1em;
+}
+
+#unseated ul li {
+	padding: 1em 1em 0;
+}
+
+#unseated ul li a {
+	text-decoration: underline;
+}
+
+#unseated ul li a:hover {
+	text-decoration: none;
+}
+
+#allTables {
+	overflow: hidden;
+}
+
+.table {
+	display: inline-block;
+	width: 200px;
+	margin: 10px;
+	padding-bottom: 1em;
+	border: 1px solid #23374f;
+	vertical-align: top;
+}
+
+.table .logo {
+	background-color: #23374f;
+	text-align: center;
+	overflow: hidden;
+}
+
+.table .logo img {
+	height: 50px;
+}
+
+#content .table .logo h3 {
+	margin: 14px 0;
+	color: #fff;
+}
+
+#content .table .logo p {
+	color: #fff;
+}
+
+.table li {
+	margin: 1em 1em 0;
+}
+
+#content .table li a.remove {
+	float: right;
+	display: block;
+	color: #c00;
+}
+
+#content .table li a.edit {
+	text-decoration: underline;
+}
+
+#content .table li a.edit:hover {
+	text-decoration: none;
+}
+
+
+/* -- INVOICE -- */
+
+#invoice {
+	width: 95%;
+	padding: 2%;
+	background: #fff;
+	margin: 2em auto;
+	background: #fff;
+	min-height: 220px;
+	clear: both;
+}
+
+.invoiceheader {
+	overflow: hidden;
+}
+
+.invoiceheader img {
+	max-height: 100px;
+}
+
+.invoiceheader .address {
+	float: right;
+	padding: 1.7em 2em 1em;
+}
+
+.invoicedetails {
+	margin: 2em 0;
+	padding: 1em 0;
+	border-top: 1px solid #ccc;
+}
+
+.invoicedetails h2 {
+	display: inline;
+}
+
+.invoicedetails p {
+	float: right;
+	margin-top: 0.2em;
+}
+
+.invoice-contactdetails {
+	float: right;
+}
+
+.invoice-contactdetails p {
+	text-align: right;
+}
+
+.invoice-contactdetails p.companyname {
+	text-align: left;
+}
+
+.invoice-contactdetails p.companyname strong {
+	float: none;
+}
+
+.invoice-contactdetails p strong {
+	float: left;
+	margin-right: 1em;
+}
+
+.invoicebody {
+	clear: both;
+}
+
+.invoices {
+	width: 100%;
+	margin-top: 2em;
+}
+
+.invoices tbody,
+.invoices tfoot {
+	border-left: 1px solid #ccc;
+}
+
+.invoices .currency {
+	text-align: right;
+}
+
+.invoices th {
+	background-color: #cbb877;
+	color: #fff;
+	padding: 1em;
+	border-top: 1px solid #cbb877;
+	border-bottom: 1px solid #cbb877;
+	border-left: 1px solid #fff;
+}
+
+.invoices th:first-child {
+	border-left: 1px solid #cbb877;
+}
+
+.invoices td {
+	padding: 1em;
+	border-right: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+}
+
+.invoices td:first-child {
+	border-right: 1px solid #ddd;
+}
+
+.invoices tfoot {
+	border-top: 4px double #999;
+}
+
+.grandtotal td {
+	font-weight: bold;
+}
+
+.invoicefooter {
+	margin-top: 2em;
+	overflow: hidden;
+}
+
+.invoicefooter .invoicepaymeth {
+	float: left;
+	width: 22%;
+	margin: 0 1% 0.5em;
+	overflow: hidden;
+}
+
+.invoicefooter .invoicepaymeth:first-child {
+	float: left;
+	width: 45%;
+	margin: 0 1% 0.5em;
+	overflow: hidden;
+}
+
+.invoicefooter .printinvoice {
+	padding: 1em 0 0;
+	border-top: 1px solid #ccc;
+	text-align: right;
+	clear: both;
+}
+
+.contenteditor label.error {
+	margin: 0 2% 15px 0;
+	clear: left;
+}
+
+.contenteditor input.error {
+	border: 1px solid #c00;
+	padding: 4px 0 5px 0.5%;
+}
+
+.contenteditor select.error {
+	border: 1px solid #c00;
+}
+
+.contenteditor p.error {
+	float:left;
+	display: block;
+	margin: 0 0 20px 22%;
+	color: #c00 !important;
+	clear: left;
+}
+
+.contenteditor div.selectfilter p.error {
+	width: 100%;
+	margin: 10px 0 20px;
+}
+
+/* Form Select Filter - Admin version */
+
+.selectfilter {
+	position: relative;
+	display:block;
+	float:left;
+	width: 52.5%;
+}
+
+.selectfilter input {
+	display:none;
+}
+
+.selectfilter.active input {
+	display:inline;
+	margin-bottom: 0;
+	float:none
+}
+
+.selectfilter.active ul {
+	display:block;
+}
+
+.selectfilter.active select {
+	display:none;
+}
+
+.selectfilter ul {
+	display: none;
+	position: absolute;
+	border: 1px solid #333;
+	width: 306px;
+	max-height: 198px;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+	background: #fff;
+	margin: 5px 0 0 0;
+	padding: 0;
+	z-index: 9999;
+}
+.selectfilter.active input {
+	display:inline-block;
+	width: 100%;
+}
+
+.selectfilter ul {
+	width: 100%;
+}
+
+.selectfilter ul li a {
+	padding: 5px;
+	display:block;
+}
+
+.selectfilter ul li a:hover {
+	cursor: pointer;
+	background-color: #eee;
+}
+
+.selectfilter ul li#noresults {
+	text-align:center;
+	padding: 5px;
+}

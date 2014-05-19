@@ -1,3 +1,47 @@
+<div id="pagecontainer">
+	<div id="header">
+		<a href="/Person/list" title="Home">TOM COLLINS</a>
+		<a href="/Person/list" title="Home" class="bridgeway"><img src="/images/bridgewaylogo.png" alt="Bridgeway Publisher" /></a>
+	</div><!--/header-->
+	<div id="content">
+		<div id="contenttop">
+				<h2><a href="index.jsp" title="Home">TOM COLLINS - SAILS JS DEMO - REAL TIME CRUD</a></h2>
+		</div><!--/contenttop-->
+		<div id="contentleft">
+			<ul>
+			<li><a href="/Person/list" title="Manage People">Manage People</a></li>
+			</ul>
+			<hr />
+		</div><!-- /contentleft -->
+		
+		<div id="contentleft-hider">
+			<a href="#" title="Hide Navigation"><img src="/images/larr.png" alt="Hide Navigation" /></a>			
+		</div>
+
+
+		
+		<div id="contentright">
+			<div id="searchbar">
+				<label for="searchbox">Search</label>
+				<input type="text" id="searchbox" name="searchbox" />
+				<input type="submit" id="searchboxgo" name="searchboxgo" value="go" />
+			</div>
+			
+			<div class="contentpadder">
+				
+				
+				<h3>People</h3>
+				
+				<div class="tools">
+					<a class="button greenbutton" title="Create Domains" href="/Person/edit/">Create New Person</a>
+				<!--
+					<div class="filter">
+						<label>Filter table</label>
+						<input type="text" name="FilterTextBox" id="FilterTextBox"/>
+						<p><a id="clearfilter" href="#">Clear Filter</a></p>
+					</div>
+				-->
+				</div>
  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
 $(document).ready(function() {
@@ -10,21 +54,59 @@ socket.on('message', function messageReceived(message) {
       ///////////////////////////////////////////////////////////
       //console.log('New comet message received :: ', message);
       if (message.verb=="create"){
-      		$('#people').append('<li id="person_'+message.data.person.id+'"><a href="/Person/edit/'+message.data.person.id+'">'+message.data.person.firstName+'&nbsp;'+message.data.person.lastName+'</a></li>');
+      		$('#people').append('<tr id="person_'+message.data.person.id+'"></tr>')
+      			.append('<td>'+message.data.person.id+'</td>')
+      			.append('<td>'+message.data.person.firstName+'</td>')
+      			.append('<td>'+message.data.person.lastName+'</td>')
+      			.append('<td class="edit"><a href="/Person/edit/'+message.data.person.id+'">Edit</a></td>')
+      			.append('<td class="delete"><a href="#">Delete</a></td>');
+      			
       }
        if (message.verb=="update"){
-       		$('#person_'+message.id).html('<a href="/Person/edit/'+message.data.person.id+'">'+message.data.person.firstName+'&nbsp;'+message.data.person.lastName+'</a></li>');
+       		$('#person_'+message.id).html('');
+       		$('#person_'+message.id)
+       			.append('<td>'+message.data.person.id+'</td>')
+      			.append('<td>'+message.data.person.firstName+'</td>')
+      			.append('<td>'+message.data.person.lastName+'</td>')
+      			.append('<td class="edit"><a href="/Person/edit/'+message.data.person.id+'">Edit</a></td>')
+      			.append('<td class="delete"><a href="#">Delete</a></td>');
+       		//$('#person_'+message.id).html('<a href="/Person/edit/'+message.data.person.id+'">'+message.data.person.firstName+'&nbsp;'+message.data.person.lastName+'</a></li>');
        }
      
     });
  });
-</script>
-<div>
-  <h2>My corndog collection:</h2>
-  <ul id="people">
+</script>				
+		<table width="100%" cellpadding="0" cellspacing="0">
+			<thead>
+				<tr>
+				<th>id</th>
+				<th>firstName</th>
+				<th>lastName</th>
+				<th class="edit">Edit</th>
+				<th class="delete">Delete</th>
+		</tr>
+	</thead>
+	<tbody id="people">
     <% _.each(people, function (person) { %>
-    <li id="person_<%= person.id %>"><a href="/Person/edit/<%= person.id %>"><%= person.firstName %>&nbsp;<%= person.lastName %></a></li>
+    <tr id="person_<%= person.id %>">
+				<td><%= person.id %></td>
+				<td><%= person.firstName %></td>
+				<td><%= person.lastName %></td>
+			<td class="edit"><a href="/Person/edit/<%= person.id %>" title="Edit">Edit</a></td>
+			<td class="delete"><a href="#" title="Delete">Delete</a></td>
+	</tr>
     <% }) %>
-  </ul>
-  <p><a href="/Person/edit/">New</a></p>
+  </tbody>
+		</tbody>
+		</table>
+
+			</div><!--/contentpadder-->
+		</div><!--/contentright-->
+
+</div><!--/contentpadder-->
+		</div><!--/contentright -->
+	</div><!--/content-->
+	<div id="footer">
+		<!--<p>Powered by <a href="http://www.digitalbridge.com.au" title="Digital Bridge">Digital Bridge</a></p>-->
+	</div><!--/footer-->
 </div>
