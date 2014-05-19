@@ -26,14 +26,16 @@
 				<h3>Edit Person</h3>
 				
 				<div class="contenteditor">
-<form action="/Person/save/<%= person.id %>" method="POST">
-
-	<label for="firstName">First Name:</label> <input id="firstName" name="firstName" type="text" value="<%= person.firstName %>"/> 
-	<label for="lastName">Last Name:</label> <input id="lastName" name="lastName" type="text" value="<%= person.lastName %>"/> 
-	<div class="savecontent">
-							<input type="submit" value="Save Changes" id="save" name="save" class="button greenbutton" />
-						</div>
-</form>
+	<form action="/Person/save/<%= person.id %>" method="POST">
+	
+			<label for="firstName">First Name:</label> <input id="firstName" name="firstName" type="text" value="<%= person.firstName %>"/> 
+			<label for="lastName">Last Name:</label> <input id="lastName" name="lastName" type="text" value="<%= person.lastName %>"/> 
+			<label for="age">Age:</label>
+			<input id="age" name="age" type="text" value="<%= person.age %>"/> 
+							<div class="savecontent">
+								<input type="submit" value="Save Changes" id="save" name="save" class="button greenbutton" />
+							</div>
+	</form>
 				</div>
 			</div><!--/contentpadder-->
 		</div><!--/contentright-->

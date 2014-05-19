@@ -53,11 +53,13 @@ socket.on('message', function messageReceived(message) {
       // server.
       ///////////////////////////////////////////////////////////
       //console.log('New comet message received :: ', message);
+      person=message.data.person;
       if (message.verb=="create"){
-      		$('#people').append('<tr id="person_'+message.data.person.id+'"></tr>')
-      			.append('<td>'+message.data.person.id+'</td>')
-      			.append('<td>'+message.data.person.firstName+'</td>')
-      			.append('<td>'+message.data.person.lastName+'</td>')
+      		$('#people').append('<tr id="person_'+person.id+'"></tr>')
+      			.append('<td>'+person.id+'</td>')
+      			.append('<td>'+person.firstName+'</td>')
+      			.append('<td>'+person.lastName+'</td>')
+      			.append('<td>'+person.age+'</td>')
       			.append('<td class="edit"><a href="/Person/edit/'+message.data.person.id+'">Edit</a></td>')
       			.append('<td class="delete"><a href="#">Delete</a></td>');
       			
@@ -65,9 +67,10 @@ socket.on('message', function messageReceived(message) {
        if (message.verb=="update"){
        		$('#person_'+message.id).html('');
        		$('#person_'+message.id)
-       			.append('<td>'+message.data.person.id+'</td>')
-      			.append('<td>'+message.data.person.firstName+'</td>')
-      			.append('<td>'+message.data.person.lastName+'</td>')
+       			.append('<td>'+person.id+'</td>')
+      			.append('<td>'+person.firstName+'</td>')
+      			.append('<td>'+person.lastName+'</td>')
+      			.append('<td>'+person.age+'</td>')
       			.append('<td class="edit"><a href="/Person/edit/'+message.data.person.id+'">Edit</a></td>')
       			.append('<td class="delete"><a href="#">Delete</a></td>');
        		//$('#person_'+message.id).html('<a href="/Person/edit/'+message.data.person.id+'">'+message.data.person.firstName+'&nbsp;'+message.data.person.lastName+'</a></li>');
@@ -82,6 +85,7 @@ socket.on('message', function messageReceived(message) {
 				<th>id</th>
 				<th>firstName</th>
 				<th>lastName</th>
+				<th>age</th>
 				<th class="edit">Edit</th>
 				<th class="delete">Delete</th>
 		</tr>
@@ -92,6 +96,7 @@ socket.on('message', function messageReceived(message) {
 				<td><%= person.id %></td>
 				<td><%= person.firstName %></td>
 				<td><%= person.lastName %></td>
+				<td><%= person.age %></td>
 			<td class="edit"><a href="/Person/edit/<%= person.id %>" title="Edit">Edit</a></td>
 			<td class="delete"><a href="#" title="Delete">Delete</a></td>
 	</tr>
