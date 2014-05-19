@@ -1,0 +1,11 @@
+*.class
+testProject/config/local.js
+# Package Files #
+*.svn
+*.war
+*.ear
+*.settings
+*.classpath
+*.project
+*.DS_Store
+ROOT/WEB-INF/classes/hibernate.properties
