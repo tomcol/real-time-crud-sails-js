@@ -1,0 +1,7 @@
+<h1>New Person</h1>
+<form action="/Person/save/<%= person.id %>" method="POST">
+
+	First Name: <input name="firstName" type="text" value="<%= person.firstName %>"/> <br />
+	Last Name: <input name="lastName" type="text" value="<%= person.lastName %>"/> <br />
+	<input type="submit"/>
+</form>

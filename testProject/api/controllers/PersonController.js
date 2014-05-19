@@ -22,23 +22,65 @@ module.exports = {
    * Action blueprints:
    *    `/person/create`
    */
-   create: function (req, res) {
+   save: function (req, res) {
   	var params = _.extend(req.query || {}, req.params || {}, req.body || {});
-	Person.create(params, function userCreated (err, createdUser) {
-        if (err) return res.send(err,500);
-Person.publishCreate({
-  id: createdUser.id,
-  person: createdUser 
-});
-console.log('publish create ',createdUser.id);
-Person.find(function(err, people){
-        res.view({
-people:people
-                })
-        });
-	});
+  	 var id = req.param('id');
+  	console.log('id ',id);
+  	if (!id || id==0) {
+  		Person.create(params, function  (err, person) {
+  	        if (err) return res.send(err,500);
+  			Person.publishCreate({
+  			  id: person.id,
+  			  person: person 
+  			});
+  			console.log('publish create ',person.id);
+  			res.redirect('/Person/list');
+  		});	 
+  	 }else{
+  		
+  		Person.update(id, params, function  (err, person) {
+  			 if (err) return res.send(err,500);
+  			Person.findOne(id).done( function (err,person){
+  				console.log('person.toJSON ',person.toJSON());
+  				Person.publishUpdate( id,
+  						{person:person.toJSON()}
+  				);
+		  	    /*Person.publishUpdate( 56, {
+		  	      name: 'Amanda'
+		  	    });*/
+  			console.log('publish update ',id);
+  			res.redirect('/Person/list');
+  			});
+  		});
+  	
+  	 }
   },
+  edit: function (req,res) {
+	  var id = req.param('id');
+	  if (!id || id==0) {
+		  //var person = new Person
+		  //person.firstName="";
+		  //person.lastName="";
+		  /*Person.create({ 
+	      firstName:"",
+	      lastName:""
+		  }).done(function(err, person) {*/
+			  //console.log('person.firstName ',person.firstName);
+			  res.view({
+		        person: { id:0,firstName: '',lastName:''},
+		      });
+		  //});
+	  }else{
 
+	  	Person.findOne(id).done( function (err,person){
+	      if (err) return res.send(err,500);
+	      
+	      res.view({
+	        person: person
+	      })
+	    });
+	  }
+  },
 
   /**
    * Action blueprints:
@@ -79,18 +121,20 @@ people:people
   },
 
   list: function(req, res) {
-Person.find(function(err, people){
-        res.view({
-people:people
-                })
+	  	Person.find(function(err, people){
+	  		res.view({
+	  				people:people
+                	})
         });
-        },
+   },
 
 welcome: function (req, res) {
     // Get all of the users
     Person.find(function(err, people){
 console.log('subscribe');
       Person.subscribe(req.socket, Person);
+      //Person.subscribe(req.socket, 7);
+      Person.subscribe(req.socket, people);
 return res.json(people);
     });
 },

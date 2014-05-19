@@ -8,9 +8,17 @@ socket.on('message', function messageReceived(message) {
       // to run when a new message arrives from the Sails.js
       // server.
       ///////////////////////////////////////////////////////////
-      console.log('New comet message received :: ', message.data.person.firstName);
-      //////////////////////////////////////////////////////
-      $('#people').append('<li>'+message.data.person.firstName+'</li>');     
+      console.log('New comet message received :: ', message);
+      if (message.verb=="create"){
+      	console.log('+message.data.person :: ', message.data.person);
+      	$('#people').append('<li id="person_'+message.data.person.id+'"><a href="/Person/edit/'+message.data.person.id+'">'+message.data.person.firstName+'&nbsp;'+message.data.person.lastName+'</a></li>');
+      }
+       if (message.verb=="update"){
+       		console.log('message.id :: ', message.id);
+       		console.log('message.data.person.firstName ', message.data.person.firstName);
+       		$('#person_'+message.id).html('<a href="/Person/edit/'+message.data.person.id+'">'+message.data.person.firstName+'&nbsp;'+message.data.person.lastName+'</a></li>');
+       }
+     
     });
  });
 </script>
@@ -18,7 +26,8 @@ socket.on('message', function messageReceived(message) {
   <h2>My corndog collection:</h2>
   <ul id="people">
     <% _.each(people, function (person) { %>
-    <li><%= person.firstName %></li>
+    <li id="person_<%= person.id %>"><a href="/Person/edit/<%= person.id %>"><%= person.firstName %>&nbsp;<%= person.lastName %></a></li>
     <% }) %>
   </ul>
+  <p><a href="/Person/edit/">New</a></p>
 </div>

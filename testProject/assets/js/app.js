@@ -26,7 +26,7 @@ console.log("This is from the connect: ", this.socket.sessionid);
       // to run when a new message arrives from the Sails.js
       // server.
       ///////////////////////////////////////////////////////////
-      log('New comet message received :: ', message.data.person.firstName);
+      //log('New comet message received :: ', message.data.person.firstName);
       //////////////////////////////////////////////////////
 
     });
@@ -34,7 +34,7 @@ console.log("This is from the connect: ", this.socket.sessionid);
 
   socket.get('/Person/welcome', function gotResponse () {
     // we don’t really care about the response
-log('socket get');
+	  	log('socket get');
   });
 
     ///////////////////////////////////////////////////////////
