@@ -29,7 +29,8 @@ module.exports.adapters = {
   myLocalMySQLDatabase: {
 
     module: 'sails-postgresql',
-    host: 'localhost', 
-    database: 'sailsTest'
+    host: 'ec2-54-83-14-68.compute-1.amazonaws.com', 
+    database: 'd4evi8sn7a86ub',
+        
   }
 };
